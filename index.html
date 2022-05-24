@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
     <title>Document</title>
 </head>
 <body>
+
+    <header>
+        <h1 id="logo">library</h1>
+    </header>
     
     <div class="main-container">
+
+        <button id="newBookBtn">NEW BOOK</button>
         
         <!-- NEW BOOK FORM -->
-        <form action="" id="newBookForm">
+
+        <form action="" id="newBookForm" class="invisible">
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title">
             
@@ -24,14 +34,18 @@
             <input type="number" name="pages" id="pages">
             
             <p>Have you read it?</p>
-            <input type="radio" name="readStatus" id="readBookYes">
-            <label for="readBookYes">Yes</label>
-            <input type="radio" name="readStatus" id="readBookNo">
-            <label for="readBookNo">No</label>
-    
+            <div class="radio">
+                <input type="radio" name="readStatus" id="readBookYes">
+                <label for="readBookYes">Yes</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="readStatus" id="readBookNo">
+                <label for="readBookNo">No</label>
+            </div>
+
             <input type="submit" value="Submit" id="newBookSubmit">
         </form>
-        
+
         <!-- BOOK CARDS DISPLAY -->
         <div class="card-display">
 

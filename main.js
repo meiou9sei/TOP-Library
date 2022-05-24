@@ -51,10 +51,31 @@ function createBookCard(book) {
     cardDisplay.appendChild(card);
 }
 
+function createBookCard() {
+
+}
+
 /***********/
 /* BUTTONS */
 /***********/
+//makes new book input form appear upon clicking "NEW BOOK"
+document.querySelector('#newBookBtn').addEventListener('click', function(e) {
+    const container = document.querySelector('#newBookForm');
+    container.classList.remove('invisible');
+})
+
+//removes new book form from page if clicked outside of
+document.addEventListener('mouseup', function(e) {
+    const container = document.querySelector('#newBookForm');
+    if (!container.contains(e.target)) {
+        container.classList.add('invisible');
+    }
+});
+
+
+
 //makes submit button do stuff
+
 document.querySelector('#newBookForm').addEventListener('submit', function(e) {
     e.preventDefault(); //prevent page refresh
 
@@ -70,14 +91,10 @@ document.querySelector('#newBookForm').addEventListener('submit', function(e) {
             readStatus = readStatusAnswers[i];
     }
 
-    let newBook = new Book(title, author, pages, readStatus);
+    const newBook = new Book(title, author, pages, readStatus);
 
 
     addBookToLibrary(newBook); //add book to library
 
     createBookCard(newBook); //creates Book display card, adds to screen
-
-
-    //addBookToLibrary(e);
 });
-

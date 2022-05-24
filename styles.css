@@ -51,6 +51,59 @@ table {
 
 /* CSS vvv */
 
+/* PALETTE */
+:root {
+    --main1: #0091ad;
+    --main1Light: #6efafb;
+    --light1: #fff4e4;
+    --light2: #f7e8af;
+    --main2: #ff57bb;
+}
+
+/* CONTAINER */
+
+body {
+    background-color: var(--light1);
+}
+
+header,
+footer {
+    background-color: var(--light2);
+}
+
 .main-container {
     display: flex;
+}
+
+#newBookForm {
+    background-color: var(--main2);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 5px;
+    border-radius: 10px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    height: 300px;
+    width: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+
+.invisible {
+    display: none !important;
+}
+
+/* FONT */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 5rem;
 }
