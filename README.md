@@ -5,8 +5,6 @@ https://www.theodinproject.com/lessons/node-path-javascript-library
 
 
 todo list:
-- new book button (hide form otherwise?)
-    - Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read and anything else you might want.
 - basic css for site
     - header
     - footer
