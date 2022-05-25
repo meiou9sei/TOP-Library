@@ -49,6 +49,10 @@ table {
 
 /* CSS RESET ^^^ */
 
+* {
+    box-sizing: border-box
+}
+
 /* CSS vvv */
 
 /* PALETTE */
@@ -66,24 +70,39 @@ body {
     background-color: var(--light1);
 }
 
-header,
-footer {
+header {
     background-color: var(--light2);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 15px;
+
 }
 
 .main-container {
     display: flex;
 }
 
+.bookCard {
+    background-color: var(--main1Light);
+    height: 200px;
+    width: 200px;
+}
+
+.bookCard,
 #newBookForm {
-    background-color: var(--main2);
-    
+    border-radius: 15px;
+    padding: 10px;
+
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
 
-    padding: 5px;
-    border-radius: 10px;
+#newBookForm {
+    background-color: var(--main2);
 
     position: fixed;
     top: 50%;

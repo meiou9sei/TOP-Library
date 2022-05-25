@@ -42,17 +42,15 @@ function createBookCard(book) {
     const card = document.createElement('div');
 
     card.innerHTML = `
-        <p>${book.title}</p>
-        <p>${book.author}</p>
-        <p>${book.pages}</p>
-        <p>replace me test read status</p>
+        <div class="bookCard">
+            <p class="cardTitle">${book.title}</p>
+            <p class="cardAuthor">${book.author}</p>
+            <p class="cardPages">${book.pages}</p>
+            <p class="cardReadStatus">replace me test read status</p>
+        </div>
     `;
 
     cardDisplay.appendChild(card);
-}
-
-function createBookCard() {
-
 }
 
 /***********/
@@ -62,6 +60,8 @@ function createBookCard() {
 document.querySelector('#newBookBtn').addEventListener('click', function(e) {
     const container = document.querySelector('#newBookForm');
     container.classList.remove('invisible');
+
+    makeNewBookFormSubmittable();
 })
 
 //removes new book form from page if clicked outside of
@@ -75,26 +75,27 @@ document.addEventListener('mouseup', function(e) {
 
 
 //makes submit button do stuff
+function makeNewBookFormSubmittable() {
+    document.querySelector('#newBookForm').addEventListener('submit', function(e) {
+        e.preventDefault(); //prevent page refresh
 
-document.querySelector('#newBookForm').addEventListener('submit', function(e) {
-    e.preventDefault(); //prevent page refresh
-
-    //creates book object
-    let title = document.querySelector('#title').value;
-    let author = document.querySelector('#author').value;
-    let pages = document.querySelector('#pages').value;
-
-    let readStatus = null; //deals with radio
-    let readStatusAnswers = document.getElementsByName('readStatus'); 
-    for (let i = 0; i < readStatusAnswers.length; i++) {
-        if (readStatusAnswers[i].checked)
-            readStatus = readStatusAnswers[i];
-    }
-
-    const newBook = new Book(title, author, pages, readStatus);
-
-
-    addBookToLibrary(newBook); //add book to library
-
-    createBookCard(newBook); //creates Book display card, adds to screen
-});
+        //creates book object
+        let title = document.querySelector('#title').value;
+        let author = document.querySelector('#author').value;
+        let pages = document.querySelector('#pages').value;
+    
+        let readStatus = null; //deals with radio
+        let readStatusAnswers = document.getElementsByName('readStatus'); 
+        for (let i = 0; i < readStatusAnswers.length; i++) {
+            if (readStatusAnswers[i].checked)
+                readStatus = readStatusAnswers[i];
+        }
+    
+        const newBook = new Book(title, author, pages, readStatus);
+    
+    
+        addBookToLibrary(newBook); //add book to library
+    
+        createBookCard(newBook); //creates Book display card, adds to screen
+    });
+}
