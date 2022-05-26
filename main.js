@@ -53,6 +53,13 @@ function createBookCard(book) {
     cardDisplay.appendChild(card);
 }
 
+function clearNewBookForm() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#pages').value = '';
+    document.querySelector('input[name="readStatus"]:checked').checked = false;
+}
+
 /***********/
 /* BUTTONS */
 /***********/
@@ -97,5 +104,8 @@ function makeNewBookFormSubmittable() {
         addBookToLibrary(newBook); //add book to library
     
         createBookCard(newBook); //creates Book display card, adds to screen
+
+        clearNewBookForm();
+
     });
 }
