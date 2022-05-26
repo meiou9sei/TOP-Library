@@ -43,10 +43,10 @@ function createBookCard(book) {
 
     card.innerHTML = `
         <div class="bookCard">
-            <p class="cardTitle">${book.title}</p>
-            <p class="cardAuthor">${book.author}</p>
-            <p class="cardPages">${book.pages}</p>
-            <p class="cardReadStatus">replace me test read status</p>
+            <p class="cardTitle">Title: ${book.title}</p>
+            <p class="cardAuthor">Author: ${book.author}</p>
+            <p class="cardPages">Pages: ${book.pages}</p>
+            <p class="cardReadStatus">Read?: ${book.readStatus}</p>
         </div>
     `;
 
@@ -89,16 +89,20 @@ function makeNewBookFormSubmittable() {
         //creates book object
         let title = document.querySelector('#title').value;
         let author = document.querySelector('#author').value;
-        let pages = document.querySelector('#pages').value;
-    
-        let readStatus = null; //deals with radio
-        let readStatusAnswers = document.getElementsByName('readStatus'); 
-        for (let i = 0; i < readStatusAnswers.length; i++) {
-            if (readStatusAnswers[i].checked)
-                readStatus = readStatusAnswers[i];
+        let pages = document.querySelector('#pages').value;    
+        //for readStatus radio
+        let readStatus = null;
+        let readStatusSet = document.getElementsByName('readStatus');
+        for (let i = 0, length = readStatusSet.length; i < length; i++) {
+            if (readStatusSet[i].checked) {
+                readStatus = readStatusSet[i].value;
+                break;
+            }
         }
     
         const newBook = new Book(title, author, pages, readStatus);
+
+        console.table(newBook);
     
     
         addBookToLibrary(newBook); //add book to library
