@@ -83,22 +83,18 @@ header {
 
 .main-container {
     display: flex;
+    justify-content: center;
+}
+
+.card-display-container {
+    display: grid;
+    grid-auto-rows: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 90vw;
 }
 
 .bookCard {
     background-color: var(--main1Light);
-    height: 200px;
-    width: 200px;
-}
-
-.bookCard,
-#newBookForm {
-    border-radius: 15px;
-    padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 
 #newBookForm {
@@ -112,6 +108,16 @@ header {
     width: 300px;
     margin-top: -150px;
     margin-left: -150px;
+}
+
+.bookCard,
+#newBookForm {
+    border-radius: 15px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .invisible {

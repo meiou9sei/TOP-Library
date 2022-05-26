@@ -37,7 +37,7 @@ function addBookToLibrary(book) {
 }
 
 function createBookCard(book) {
-    const cardDisplay = document.querySelector('.card-display');
+    const cardDisplay = document.querySelector('.card-display-container');
 
     const card = document.createElement('div');
 
