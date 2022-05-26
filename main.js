@@ -40,14 +40,13 @@ function createBookCard(book) {
     const cardDisplay = document.querySelector('.card-display-container');
 
     const card = document.createElement('div');
+    card.classList.add('bookCard');
 
     card.innerHTML = `
-        <div class="bookCard">
-            <p class="cardTitle">Title: ${book.title}</p>
-            <p class="cardAuthor">Author: ${book.author}</p>
-            <p class="cardPages">Pages: ${book.pages}</p>
-            <p class="cardReadStatus">Read?: ${book.readStatus}</p>
-        </div>
+        <p class="cardTitle">Title: ${book.title}</p>
+        <p class="cardAuthor">Author: ${book.author}</p>
+        <p class="cardPages">Pages: ${book.pages}</p>
+        <p class="cardReadStatus">Read?: ${book.readStatus}</p>
     `;
 
     cardDisplay.appendChild(card);
