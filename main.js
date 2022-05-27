@@ -47,9 +47,18 @@ function createBookCard(book) {
         <p class="cardAuthor">Author: ${book.author}</p>
         <p class="cardPages">Pages: ${book.pages}</p>
         <p class="cardReadStatus">Read?: ${book.readStatus}</p>
+        <button class="removeCard">Remove Book</button>
     `;
 
+    //makes card removable
+    card.addEventListener('click', (e) => {removeBook(e.target)});
+
     cardDisplay.appendChild(card);
+}
+
+function removeBook(el) {
+    console.log(el);
+    el.parentElement.remove();
 }
 
 function clearNewBookForm() {
@@ -78,6 +87,14 @@ document.addEventListener('mouseup', function(e) {
     }
 });
 
+//deletes book from card Display
+const removeBooks = document.querySelectorAll('.removeBook');
+console.log(removeBooks);
+for (let i = 0; i < removeBooks.length; i++) {
+    removeBooks[i].addEventListener('click', function(e) {
+        removeBook(e.target);
+    });
+}
 
 
 //makes submit button do stuff
@@ -102,7 +119,6 @@ function makeNewBookFormSubmittable() {
         const newBook = new Book(title, author, pages, readStatus);
 
         console.table(newBook);
-    
     
         addBookToLibrary(newBook); //add book to library
     
