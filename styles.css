@@ -141,3 +141,12 @@ body {
 h1 {
     font-size: 5rem;
 }
+
+.bottomNotice {
+    font-size: .8rem;
+
+    margin-top: auto;
+    align-self: center;
+
+    color:rgba(0, 0, 0, 0.6)
+}
