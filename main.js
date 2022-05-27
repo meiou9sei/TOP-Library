@@ -51,7 +51,8 @@ function createBookCard(book) {
     `;
 
     //makes card removable
-    card.addEventListener('click', (e) => {removeBook(e.target)});
+    console.log(card.lastElementChild);
+    card.lastElementChild.addEventListener('click', (e) => {removeBook(e.target)});
 
     cardDisplay.appendChild(card);
 }
@@ -117,8 +118,6 @@ function makeNewBookFormSubmittable() {
         }
     
         const newBook = new Book(title, author, pages, readStatus);
-
-        console.table(newBook);
     
         addBookToLibrary(newBook); //add book to library
     
