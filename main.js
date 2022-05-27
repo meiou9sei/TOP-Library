@@ -73,12 +73,40 @@ function clearNewBookForm() {
 /* BUTTONS */
 /***********/
 //makes new book input form appear upon clicking "NEW BOOK"
-document.querySelector('#newBookBtn').addEventListener('click', function(e) {
+document.querySelector('#newBookBtn').addEventListener('click', function() {
     const container = document.querySelector('#newBookForm');
     container.classList.remove('invisible');
 
-    makeNewBookFormSubmittable();
+    console.log("test");
 })
+
+//makes new book form submittable
+document.querySelector('#newBookForm').addEventListener('submit', function(e) {
+    e.preventDefault(); //prevent page refresh
+
+    //creates book object
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;    
+    //for readStatus radio
+    let readStatus = null;
+    let readStatusSet = document.getElementsByName('readStatus');
+    for (let i = 0, length = readStatusSet.length; i < length; i++) {
+        if (readStatusSet[i].checked) {
+            readStatus = readStatusSet[i].value;
+            break;
+        }
+    }
+
+    const newBook = new Book(title, author, pages, readStatus);
+
+    addBookToLibrary(newBook); //add book to library
+
+    createBookCard(newBook); //creates Book display card, adds to screen
+
+    clearNewBookForm();
+
+});
 
 //removes new book form from page if clicked outside of
 document.addEventListener('mouseup', function(e) {
@@ -94,36 +122,5 @@ console.log(removeBooks);
 for (let i = 0; i < removeBooks.length; i++) {
     removeBooks[i].addEventListener('click', function(e) {
         removeBook(e.target);
-    });
-}
-
-
-//makes submit button do stuff
-function makeNewBookFormSubmittable() {
-    document.querySelector('#newBookForm').addEventListener('submit', function(e) {
-        e.preventDefault(); //prevent page refresh
-
-        //creates book object
-        let title = document.querySelector('#title').value;
-        let author = document.querySelector('#author').value;
-        let pages = document.querySelector('#pages').value;    
-        //for readStatus radio
-        let readStatus = null;
-        let readStatusSet = document.getElementsByName('readStatus');
-        for (let i = 0, length = readStatusSet.length; i < length; i++) {
-            if (readStatusSet[i].checked) {
-                readStatus = readStatusSet[i].value;
-                break;
-            }
-        }
-    
-        const newBook = new Book(title, author, pages, readStatus);
-    
-        addBookToLibrary(newBook); //add book to library
-    
-        createBookCard(newBook); //creates Book display card, adds to screen
-
-        clearNewBookForm();
-
     });
 }
