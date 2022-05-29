@@ -51,14 +51,12 @@ function createBookCard(book) {
     `;
 
     //makes card removable
-    console.log(card.lastElementChild);
     card.lastElementChild.addEventListener('click', (e) => {removeBook(e.target)});
 
     cardDisplay.appendChild(card);
 }
 
 function removeBook(el) {
-    console.log(el);
     el.parentElement.remove();
 }
 
@@ -76,8 +74,6 @@ function clearNewBookForm() {
 document.querySelector('#newBookBtn').addEventListener('click', function() {
     const container = document.querySelector('#newBookForm');
     container.classList.remove('invisible');
-
-    console.log("test");
 })
 
 //makes new book form submittable
@@ -118,7 +114,6 @@ document.addEventListener('mouseup', function(e) {
 
 //deletes book from card Display
 const removeBooks = document.querySelectorAll('.removeBook');
-console.log(removeBooks);
 for (let i = 0; i < removeBooks.length; i++) {
     removeBooks[i].addEventListener('click', function(e) {
         removeBook(e.target);

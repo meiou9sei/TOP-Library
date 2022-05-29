@@ -142,11 +142,20 @@ h1 {
     font-size: 5rem;
 }
 
+a {
+    text-decoration: none;
+    color: var(--main1);
+}
+
+a:hover {
+    color: var(--main2);
+}
+
 .bottomNotice {
     font-size: .8rem;
 
     margin-top: auto;
     align-self: center;
 
-    color:rgba(0, 0, 0, 0.6)
+    color:rgba(0, 0, 0, 0.6);
 }
