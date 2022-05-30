@@ -94,13 +94,26 @@ document.querySelector('#newBookForm').addEventListener('submit', function(e) {
         }
     }
 
-    const newBook = new Book(title, author, pages, readStatus);
+    //validate book
+    //warning if empty field
+    if(title === "" || author === "" || pages === "" || readStatus === null) {
+        const form = document.querySelector("#newBookForm");
+        const warning = document.createElement('div');
+        warning.classList.add('warning');
+        warning.appendChild(document.createTextNode('Please fill in all fields'));
+        form.insertBefore(warning, form.children[10]);
 
-    addBookToLibrary(newBook); //add book to library
+        setTimeout(() => document.querySelector('.warning').remove(), 3000);
+    } else { //adds book if all fields good
+        const newBook = new Book(title, author, pages, readStatus);
+    
+        addBookToLibrary(newBook); //add book to library
+    
+        createBookCard(newBook); //creates Book display card, adds to screen
+    
+        clearNewBookForm();        
+    }
 
-    createBookCard(newBook); //creates Book display card, adds to screen
-
-    clearNewBookForm();
 
 });
 
