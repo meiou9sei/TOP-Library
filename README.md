@@ -1,7 +1,17 @@
 # TOP-Library
 javascript practice, library project
 
+!! this project is backburner for now
+
+gotta rewrite it with myLibrary and local storage as a focus
+
 https://www.theodinproject.com/lessons/node-path-javascript-library
+
+
+WHEN WORKING ON READ/NOT READ NEXT:
+- have that toggle on button click
+- have it also run a function, which checks the new true/false value, that sets css or not
+- also change the myLibrary status
 
 
 todo list:

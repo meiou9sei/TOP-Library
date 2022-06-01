@@ -46,18 +46,23 @@ function createBookCard(book) {
         <p class="cardTitle">Title: ${book.title}</p>
         <p class="cardAuthor">Author: ${book.author}</p>
         <p class="cardPages">Pages: ${book.pages}</p>
-        <p class="cardReadStatus">Read?: ${book.readStatus}</p>
+        <button class="cardReadStatus">${book.readStatus}</button>
         <button class="removeCard">Remove Book</button>
     `;
 
     //makes card removable
     card.lastElementChild.addEventListener('click', (e) => {removeBook(e.target)});
+    card.lastElementChild.previousElementChild.addEventListener('click', (e) => {readStatusToggle(e.target)});
 
     cardDisplay.appendChild(card);
 }
 
 function removeBook(el) {
     el.parentElement.remove();
+}
+
+function readStatusToggle(el) {
+    //uhh add code here later
 }
 
 function clearNewBookForm() {
