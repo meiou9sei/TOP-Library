@@ -7,7 +7,7 @@ live here but it's unfinished: https://meiou9sei.github.io/TOP-Library/
 
 going to rewrite it someday, maybe
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------
 
 gotta rewrite it with myLibrary and local storage as a focus
 
