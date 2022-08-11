@@ -3,6 +3,12 @@ javascript practice, library project
 
 !! this project is backburner for now
 
+live here but it's unfinished: https://meiou9sei.github.io/TOP-Library/
+
+going to rewrite it someday, maybe
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 gotta rewrite it with myLibrary and local storage as a focus
 
 https://www.theodinproject.com/lessons/node-path-javascript-library
